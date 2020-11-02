@@ -1,4 +1,4 @@
-//Evan Raditya 05211940000139
+<!-- Evan Raditya 05211940000139 -->
 <html>
 
 <head>
@@ -29,56 +29,66 @@
             $('.kota').blur(function () {
                 data = $('.kota').val();
                 var len = data.length;
-                if (len < 1) {
+                if (len < 1) { //mengecek jika box masih kosong atau tidak
                     $('.kota').next().show();
-                    $('.jarak').attr('disabled', true); //menonaktifkan box NRP jika box user id belum diisi
-                    $('.kurir').attr('disabled', true); //menonaktifkan box Departemen password jika box user id belum diisi
+                    $('.jarak').attr('disabled', true); //menonaktifkan box NRP jika box nama belum diisi
+                    $('.kurir').attr('disabled', true); //menonaktifkan box Departemen jika box nama belum diisi
+                    $('.password').attr('disabled', true); //menonaktifkan box password jika box nama belum diisi
+                    $('.confpass').attr('disabled', true); //menonaktifkan box konfirmasi password jika box nama belum diisi
                 }
                 else {
                     $('.kota').next().hide();
-                    $('.jarak').removeAttr('disabled'); //mengaktifkan box NRP jika box user id sudah diisi
-                    $('.kurir').removeAttr('disabled'); //mengaktifkan box Departemen jika box user id sudah diisi
+                    $('.jarak').removeAttr('disabled'); //mengaktifkan box NRP jika box nama sudah diisi
+                    $('.kurir').removeAttr('disabled'); //mengaktifkan box Departemen jika box nama sudah diisi
+                    $('.password').removeAttr('disabled'); //mengaktifkan box password jika box nama sudah diisi
+                    $('.confpass').removeAttr('disabled'); //mengaktifkan box pasword jika box nama sudah diisi
                 }
             });
             $('.jarak').blur(function () {
                 data = $('.jarak').val();
                 var len = data.length;
-                if (len < 1) {
+                if (len < 1) { //mengecek jika box masih kosong atau tidak
                     $('.jarak').next().show();
-                    $('.kurir').attr('disabled', true);
+                    $('.kurir').attr('disabled', true); //menonaktifkan box Departemen jika box NRP belum diisi
+                    $('.password').attr('disabled', true); //menonaktifkan box password jika box NRP belum diisi
+                    $('.confpass').attr('disabled', true); //menonaktifkan box konfirmasi password jika box NRP belum diisi
                 }
                 else {
                     $('.jarak').next().hide();
-                    $('.kurir').removeAttr('disabled');
+                    $('.kurir').removeAttr('disabled'); //mengaktifkan box Departemen jika box NRP sudah diisi
+                    $('.password').removeAttr('disabled'); //mengaktifkan box password jika box NRP sudah diisi
+                    $('.confpass').removeAttr('disabled');  //mengaktifkan box konfirmasi password jika box NRP sudah diisi
                 }
             });
             $('.kurir').blur(function () {
                 data = $('.kurir').val();
                 var len = data.length;
-                if (len < 1) {
+                if (len < 1) { //mengecek jika box masih kosong atau tidak
                     $('.kurir').next().show();
-                    $('.password').attr('disabled', true);
+                    $('.password').attr('disabled', true); //menonaktifkan box password jika box departemen belum diisi
+                    $('.confpass').attr('disabled', true); //menonaktifkan box konfirmasi password jika box departemen belum diisi
                 }
                 else {
                     $('.kurir').next().hide();
-                    $('.password').removeAttr('disabled');
+                    $('.password').removeAttr('disabled'); //mengaktifkan box password jika box departemen sudah diisi 
+                    $('.confpass').removeAttr('disabled'); //mengaktifkan box konfirmasi password jika box departemen sudah diisi
                 }
             });
             $('.password').blur(function () {
                 data = $('.password').val();
                 var len = data.length;
-                if (len < 1) {
+                if (len < 1) { //mengecek jika box masih kosong atau tidak
                     $('.password').next().show();
-                    $('.confpass').attr('disabled', true);
+                    $('.confpass').attr('disabled', true); //menonaktifkan box konfirmasi password jika box password belum diisi
                 }
                 else {
                     $('.password').next().hide();
-                    $('.confpass').removeAttr('disabled');
+                    $('.confpass').removeAttr('disabled'); //mengaktifkan box konfirmasi password jika box password sudah diisi
                 }
             });
             $('.confpass').blur(function () {
-                if ($('.password').val() != $('.confpass').val()) {
-                    $('.confpass').next().show();
+                if ($('.password').val() != $('.confpass').val()) { //mengecek kesamaan isi antara box password dengan box konfirmasi password
+                    $('.confpass').next().show(); //memunculkan pesan error bahwa password belum sama
                 }
                 else {
                     $('.confpass').next().hide();
