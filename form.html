@@ -1,0 +1,108 @@
+//Evan Raditya 05211940000139
+<html>
+
+<head>
+    <style>
+        style.css .label {
+            float: left;
+            width: 120px;
+        }
+
+        .error {
+            color: red;
+            padding-left: 10px;
+        }
+
+        .submit {
+            margin-left: 125px;
+            margin-top: 10px;
+        }
+
+        div {
+            padding: 5px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.error').hide(); //menyembunyikan pesan error
+            $('.kota').blur(function () {
+                data = $('.kota').val();
+                var len = data.length;
+                if (len < 1) {
+                    $('.kota').next().show();
+                    $('.jarak').attr('disabled', true); //menonaktifkan box NRP jika box user id belum diisi
+                    $('.kurir').attr('disabled', true); //menonaktifkan box Departemen password jika box user id belum diisi
+                }
+                else {
+                    $('.kota').next().hide();
+                    $('.jarak').removeAttr('disabled'); //mengaktifkan box NRP jika box user id sudah diisi
+                    $('.kurir').removeAttr('disabled'); //mengaktifkan box Departemen jika box user id sudah diisi
+                }
+            });
+            $('.jarak').blur(function () {
+                data = $('.jarak').val();
+                var len = data.length;
+                if (len < 1) {
+                    $('.jarak').next().show();
+                    $('.kurir').attr('disabled', true);
+                }
+                else {
+                    $('.jarak').next().hide();
+                    $('.kurir').removeAttr('disabled');
+                }
+            });
+            $('.kurir').blur(function () {
+                data = $('.kurir').val();
+                var len = data.length;
+                if (len < 1) {
+                    $('.kurir').next().show();
+                    $('.password').attr('disabled', true);
+                }
+                else {
+                    $('.kurir').next().hide();
+                    $('.password').removeAttr('disabled');
+                }
+            });
+            $('.password').blur(function () {
+                data = $('.password').val();
+                var len = data.length;
+                if (len < 1) {
+                    $('.password').next().show();
+                    $('.confpass').attr('disabled', true);
+                }
+                else {
+                    $('.password').next().hide();
+                    $('.confpass').removeAttr('disabled');
+                }
+            });
+            $('.confpass').blur(function () {
+                if ($('.password').val() != $('.confpass').val()) {
+                    $('.confpass').next().show();
+                }
+                else {
+                    $('.confpass').next().hide();
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form>
+        <div><span class="label">Nama </span><input type="text" class="kota" name="kota" /><span class="error">
+                Nama tidak boleh kosong!</span></div>
+        <div><span class="label">NRP </span><input type="number" class="jarak" name="jarak" /><span class="error">
+                NRP tidak boleh kosong!</span></div>
+        <div><span class="label">Departemen </span><input type="text" class="kurir" name="kurir" /><span class="error">
+                Departemen tidak boleh kosong!</span></div>
+        <div><span class="label">Password </span><input type="password" class="password" name="password" /><span
+                class="error">
+                Password tidak boleh kosong!</span></div>
+        <div><span class="label">Konfirmasi Password </span><input type="password" class="confpass"
+                name="confpass" /><span class="error">
+                Password tidak cocok!</span></div>
+    </form>
+</body>
+
+</html>
